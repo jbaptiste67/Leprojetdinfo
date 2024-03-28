@@ -15,5 +15,9 @@ public class Piece {
     private Mur m2 ;
     private Mur m3 ;
     private Mur m4 ;
+    private Sol s ;
+    private Plafond p ;
+    
+    // idée : attribuer un rôle à chaque pièce (salle de bain, chambre...)
     
 }
