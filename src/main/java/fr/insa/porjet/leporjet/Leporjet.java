@@ -29,9 +29,9 @@ nb de fenêtres et d'ouvertures etc
 calcul du devis : budget respecté ?
         */
         System.out.println("Quel est votre budget pour ce devis?");
-        Lire.i()= int B ;
+        int B = Lire.i()  ;
         System.out.println("Votre bâtiment est-il un immeuble ou une maison");
-        Lire.b()=boolean type ;
+        boolean type = Lire.b() ;
         
         
     }
