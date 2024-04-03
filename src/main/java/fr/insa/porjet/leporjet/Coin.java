@@ -49,6 +49,16 @@ public class Coin {
         return "Coin{" + "id=" + id + ", x=" + x + ", y=" + y + '}';
     }
     
+   public static void Saisiecoin (int id,double x, double y) {
+    System.out.println("donner l'identifiant de votre coin");
+    id=Lire.i();
+    System.out.println("donner les coordonnées x,y de votre coin");
+    x=Lire.d();
+    y=Lire.d();
     
     
+}
+    
+    
+}
 }
