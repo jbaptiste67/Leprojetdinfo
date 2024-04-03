@@ -10,4 +10,6 @@ package fr.insa.porjet.leporjet;
  */
 public class Etage {
     
+    private int id;
+    
 }
