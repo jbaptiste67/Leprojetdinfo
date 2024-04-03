@@ -32,7 +32,7 @@ calcul du devis : budget respecté ?
         int B = Lire.i()  ;
         System.out.println("Votre bâtiment est-il un immeuble ou une maison");
         String type = Lire.S() ;
-        
+        // 
         
     }
 }
