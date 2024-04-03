@@ -61,11 +61,11 @@ public class Mur{
                "Coordonnées du coin 2 : (" + cf.getX() + ", " + cf.getY() + ")";
    }
    
-  public double surface() {
-        double L,S,H;
-        H=3;
-        L = sqrt(Math.pow(cd.getX() - cf.getX(), 2) + Math.pow(cd.getY() - cf.getY(), 2));
-        S=L*H;
-        return S;
-    }
+ public double longueur() {
+    return Math.sqrt(Math.pow(cf.getX() - cd.getX(), 2) + Math.pow(cf.getY() - cd.getY(), 2));
+}
+
+public double surface(double hauteur) {
+    return longueur() * hauteur;
+}
 }
