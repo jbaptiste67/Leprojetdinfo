@@ -23,16 +23,50 @@ public class Leporjet {
         immeuble ou maison
 longueur largeur et hauteur du bat (calcul surface facade, revêtement pour la façade?)
 nb d'étages et hauteur de chaque niveau
-nombre de pièces par étage
+nombre de pièces et fonction de chacune par étage
 fonction et coordonnées de chaque pièce, choix des revêtements pour chaque élément de la pièce
 nb de fenêtres et d'ouvertures etc
 calcul du devis : budget respecté ?
         */
         System.out.println("Quel est votre budget pour ce devis?");
         int B = Lire.i()  ;
-        System.out.println("Votre bâtiment est-il un immeuble ou une maison");
-        String type = Lire.S() ;
+
         
-        
-    }
+System.out.println("Quelle est la hauteur de votre bâtiment ?");
+double h=Lire.d();
+
+System.out.println("Combien d'étages a votre bâtiment ?"); 
+       int nbetage=Lire.i();
+       
+System.out.println("tous vos étages font-ils la même hauteur ?");
+String reponse=Lire.S();
+while (reponse!="oui"&&"non"){
+    System.out.println("tous vos étages font-ils la même hauteur ?");
+var reponse=Lire.S();
+if ("oui".equals(reponse)) {
+    double hauteur=h/nbetage;
+}if ("non".equals(reponse)){
+        System.out.println("donnez la hauteur de chaque etage en partant du rdc");
+        for (int i=1; i<=nbetage; i++) {
+            //comment différencier chaque lire étage? new etage ??//
+        }}}
+//A REVOIR// 
+System.out.println("Combien de pièces y a-t-il dans l'étage ?");
+
+        }
+    
 }
+    
+   
+
+/*cb étages ? 
+demander hauteur bâtiment et si tous les étages sont de même hauteur : si même hauteur, alors on 
+calcule la heuteur de chaque étage
+sinon demander indépendamment pour chaque étage
+on commence par demander cb de pièces par étage et les fonctions de chaque piece
+boucle pour chaque piece
+dans le boucle : combien de murs
+boucle pour mur1 à mur n, pour chaque itération on demande coin début et coin fin
+dans boucle mur, demander quel revetement puis appeler revetement + surface
+*/
+
