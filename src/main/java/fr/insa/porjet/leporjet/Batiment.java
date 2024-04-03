@@ -9,5 +9,6 @@ package fr.insa.porjet.leporjet;
  * @author Elève
  */
 public class Batiment {
+    private H; //hauteur totale du bâtiment
     
 }
