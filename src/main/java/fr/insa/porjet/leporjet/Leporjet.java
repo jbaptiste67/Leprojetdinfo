@@ -31,7 +31,7 @@ calcul du devis : budget respecté ?
         System.out.println("Quel est votre budget pour ce devis?");
         int B = Lire.i()  ;
         System.out.println("Votre bâtiment est-il un immeuble ou une maison");
-        boolean type = Lire.b() ;
+        String type = Lire.S() ;
         
         
     }
