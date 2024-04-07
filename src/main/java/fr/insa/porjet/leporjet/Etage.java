@@ -8,10 +8,26 @@ package fr.insa.porjet.leporjet;
  *
  * @author Elève
  */
+import java.util.ArrayList;
+import java.util.List;
 public class Etage {
     
+    private List<Piece> pieces;
 
-        // Demander le nombre d'étages
+    public Etage() {
+        pieces = new ArrayList<>();
+    }
+
+    public void ajouterPiece(Piece piece) {
+        pieces.add(piece);
+    }
+
+    public List<Piece> getPieces() {
+        return pieces;
+    }
+}
+
+        /* Demander le nombre d'étages
         System.out.print("Combien d'étages y a-t-il ? ");
         int nombreEtages = Lire.i();
 
@@ -74,5 +90,5 @@ public class Etage {
 }
 ```
 
-// CHAT GPT !!!//
-}
+// CHAT GPT !!!*/
+
