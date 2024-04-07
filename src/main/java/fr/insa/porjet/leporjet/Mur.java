@@ -66,6 +66,6 @@ public class Mur{
 }
 
 public double surface(double hauteur) {
-    return longueur() * hauteur;
+    return longueur()* hauteur;
 }
 }
