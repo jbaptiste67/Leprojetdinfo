@@ -8,6 +8,9 @@ package fr.insa.porjet.leporjet;
  *
  * @author cesse
  */
+import java.util.ArrayList;
+import java.util.List;
+
 public class Piece {
     
     private int idp ;
@@ -18,6 +21,21 @@ public class Piece {
     private Sol s ;
     private Plafond p ;
     
+   
+    private List<Mur> murs;
+
+    public Piece() {
+        murs = new ArrayList<>();
+    }
+
+    public void ajouterMur(Mur mur) {
+        murs.add(mur);
+    }
+
+    public List<Mur> getMurs() {
+        return murs;
+    }
+}
+    
     // idée : attribuer un rôle à chaque pièce (salle de bain, chambre...)
     
-}
