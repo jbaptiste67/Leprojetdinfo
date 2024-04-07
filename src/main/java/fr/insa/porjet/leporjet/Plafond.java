@@ -9,65 +9,35 @@ package fr.insa.porjet.leporjet;
  * @author Elève
  */
 public class Plafond {
-
-    private int idP;
-    private Mur ca;
-    private Mur cb;
-    private Mur cc;
-    private Mur cd;
-
-    public Plafond(int idP, Mur ca, Mur cb, Mur cc, Mur cd) {
-        this.idP = idP;
-        this.ca = ca;
-        this.cb = cb;
-        this.cc = cc;
-        this.cd = cd;
-    }
-
-    public int getIdP() {
-        return idP;
-    }
-
-    public void setIdP(int idP) {
-        this.idP = idP;
-    }
-
-    public Mur getCa() {
-        return ca;
-    }
-
-    public void setCa(Mur ca) {
-        this.ca = ca;
-    }
-
-    public Mur getCb() {
-        return cb;
-    }
-
-    public void setCb(Mur cb) {
-        this.cb = cb;
-    }
-
-    public Mur getCc() {
-        return cc;
-    }
-
-    public void setCc(Mur cc) {
-        this.cc = cc;
-    }
-
-    public Mur getCd() {
-        return cd;
-    }
-
-    public void setCd(Mur cd) {
-        this.cd = cd;
-    }
-
+    private Mur murHaut;
+    private Mur murBas;
+    private Mur murGauche;
+    private Mur murDroit;
     
-        
-        
+    // Constructeur
+    public Plafond(Mur murHaut, Mur murBas, Mur murGauche, Mur murDroit) {
+        this.murHaut = murHaut;
+        this.murBas = murBas;
+        this.murGauche = murGauche;
+        this.murDroit = murDroit;
     }
     
+    // Méthode pour calculer l'aire du plafond
+    public double calculerAire() {
+        double longueur = murHaut.longueur();
+        double largeur = murGauche.longueur();
+        return longueur * largeur;
+    }
     
-
+    // Méthode pour afficher les informations sur le plafond
+    public void afficherInformations() {
+        System.out.println("Mur haut : " + murHaut);
+        System.out.println("Mur bas : " + murBas);
+        System.out.println("Mur gauche : " + murGauche);
+        System.out.println("Mur droit : " + murDroit);
+        System.out.println("Aire du plafond : " + calculerAire());
+    }
+    
+    // Méthodes getters et setters
+    // Vous pouvez les ajouter selon vos besoins pour accéder aux murs du plafond
+}
