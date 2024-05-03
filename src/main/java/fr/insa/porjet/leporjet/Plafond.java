@@ -8,36 +8,20 @@ package fr.insa.porjet.leporjet;
  *
  * @author Elève
  */
-public class Plafond {
-    private Mur murHaut;
-    private Mur murBas;
-    private Mur murGauche;
-    private Mur murDroit;
-    
+public class Plafond extends Surfacerect {
+
     // Constructeur
     public Plafond(Mur murHaut, Mur murBas, Mur murGauche, Mur murDroit) {
-        this.murHaut = murHaut;
-        this.murBas = murBas;
-        this.murGauche = murGauche;
-        this.murDroit = murDroit;
+        super(murHaut, murBas, murGauche, murDroit);
     }
-    
-    // Méthode pour calculer l'aire du plafond
+
+    // Implémentation de la méthode abstraite calculerAire pour le plafond
+    @Override
     public double calculerAire() {
-        double longueur = murHaut.longueur();
-        double largeur = murGauche.longueur();
+        double longueur = getMurHaut().longueur();
+        double largeur = getMurGauche().longueur();
         return longueur * largeur;
     }
-    
-    // Méthode pour afficher les informations sur le plafond
-    public void afficherInformations() {
-        System.out.println("Mur haut : " + murHaut);
-        System.out.println("Mur bas : " + murBas);
-        System.out.println("Mur gauche : " + murGauche);
-        System.out.println("Mur droit : " + murDroit);
-        System.out.println("Aire du plafond : " + calculerAire());
-    }
-    
-    // Méthodes getters et setters
-    // Vous pouvez les ajouter selon vos besoins pour accéder aux murs du plafond
+
+    // Autres méthodes spécifiques au plafond si nécessaire
 }

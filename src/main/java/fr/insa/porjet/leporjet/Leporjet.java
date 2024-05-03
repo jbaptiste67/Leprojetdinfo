@@ -8,20 +8,29 @@ package fr.insa.porjet.leporjet;
  *
  * @author Elève
  */
-import fr.insa.porjet.leporjet.*;
+
 
 
 public class Leporjet {
 
+    private static double hauteur;
+    
+     public static double getHauteur() {
+        return hauteur;
+    }
+
+    public static void setHauteur(double hauteur) {
+        Leporjet.hauteur = hauteur;
+    }
     public static void main(String[] args) {
-        /*Coin c1 = new Coin(1,3.15,4.5);
+        Coin c1 = new Coin(1,3,4);
         Coin c2 = new Coin(2,7,9);
         Mur m1= new Mur(1,c1,c2); 
         
         System.out.println(c1.toString());
         System.out.println(c2.toString());
-        System.out.println( "surface : "+ m1.surface());
-        */
+        System.out.println( "surface : "+ m1.surface(hauteur));
+        
         
         /* demande de budget
         immeuble ou maison
@@ -31,7 +40,7 @@ nombre de pièces et fonction de chacune par étage
 fonction et coordonnées de chaque pièce, choix des revêtements pour chaque élément de la pièce
 nb de fenêtres et d'ouvertures etc
 calcul du devis : budget respecté ?
-        */
+        
         System.out.println("Quel est votre budget pour ce devis?");
         int B = Lire.i()  ;
 
@@ -91,7 +100,7 @@ for (int i =1; i<=nbetage ; i++) {
     }
     // Ajout de l'étage au bâtiment
     batiment.ajouterEtage(etage);
-}
+}*/
         
 
 
