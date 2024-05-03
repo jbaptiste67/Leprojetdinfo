@@ -40,8 +40,9 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        primaryStage.setTitle("Leporjet");
+        primaryStage.setTitle("");
         
+        setAppIcon(primaryStage);
         setupWelcomeWindow();
     }
 
@@ -71,10 +72,18 @@ public class App extends Application {
         primaryStage.setScene(welcomeScene);
         primaryStage.show();
     }
+     
+    private void setAppIcon(Stage stage) {
+        // Charger l'icône à partir d'un fichier image (par exemple, favicon.png)
+        
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/petit_porjet.png")));
+        // Ajouter l'icône à la liste des icônes du Stage (favicon de l'application)
+    }
 
     private void showSecondWindow() {
         Stage secondStage = new Stage();
         secondStage.setTitle("Informations");
+        setAppIcon(secondStage);
 
         Label budgetLabel = new Label("Entrez votre budget :");
         TextField budgetField = new TextField();
@@ -116,6 +125,7 @@ public class App extends Application {
     private void showThirdWindow() {
         Stage thirdStage = new Stage();
         thirdStage.setTitle("Mon Projet");
+        setAppIcon(thirdStage);
 
         // Layout principal
         VBox root = new VBox(10);
