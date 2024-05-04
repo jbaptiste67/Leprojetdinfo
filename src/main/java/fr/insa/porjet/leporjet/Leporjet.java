@@ -14,6 +14,15 @@ package fr.insa.porjet.leporjet;
 public class Leporjet {
 
     private static double hauteur;
+    private static double budget;
+
+    public static double getBudget() {
+        return budget;
+    }
+
+    public static void setBudget(double budget) {
+        Leporjet.budget = budget;
+    }
     
      public static double getHauteur() {
         return hauteur;
@@ -23,6 +32,7 @@ public class Leporjet {
         Leporjet.hauteur = hauteur;
     }
     public static void main(String[] args) {
+        
         Coin c1 = new Coin(1,3,4);
         Coin c2 = new Coin(2,7,9);
         Mur m1= new Mur(1,c1,c2); 

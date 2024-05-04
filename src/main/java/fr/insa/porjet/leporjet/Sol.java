@@ -14,7 +14,7 @@ public class Sol extends Surfacerect {
     public Sol(Mur murHaut, Mur murBas, Mur murGauche, Mur murDroit) {
         super(murHaut, murBas, murGauche, murDroit);
     }
-
+    
     // Implémentation de la méthode abstraite calculerAire pour le sol
     @Override
     public double calculerAire() {

@@ -13,6 +13,18 @@ import java.util.List;
 public class Etage {
     
     private List<Piece> pieces;
+    private int idpiece;
+    private int nbappart;
+    private double hauteur;
+
+    public Etage(List<Piece> pieces, int idpiece, int nbappart, double hauteur) {
+        this.pieces = pieces;
+        this.idpiece = idpiece;
+        this.nbappart = nbappart;
+        this.hauteur = hauteur;
+    }
+    
+    
 
     public Etage() {
         pieces = new ArrayList<>();

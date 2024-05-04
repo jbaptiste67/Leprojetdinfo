@@ -66,7 +66,7 @@ public class App extends Application {
         welcomeLayout.getStyleClass().add("welcome-layout");
         welcomeLayout.getChildren().addAll(logoView, welcomeLabel, startButton);
 
-        Scene welcomeScene = new Scene(welcomeLayout, 400, 250);
+        Scene welcomeScene = new Scene(welcomeLayout, 500, 400);
         welcomeScene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
 
         primaryStage.setScene(welcomeScene);
@@ -80,45 +80,91 @@ public class App extends Application {
         // Ajouter l'icône à la liste des icônes du Stage (favicon de l'application)
     }
 
-    private void showSecondWindow() {
+
+      private void showSecondWindow() {
+          
         Stage secondStage = new Stage();
         secondStage.setTitle("Informations");
         setAppIcon(secondStage);
+
+        Label typeLabel = new Label("Choisissez le type de bâtiment :");
+
+        ToggleGroup typeToggleGroup = new ToggleGroup();
+
+        RadioButton maisonRadioButton = new RadioButton("Maison");
+        maisonRadioButton.setToggleGroup(typeToggleGroup);
+
+        RadioButton immeubleRadioButton = new RadioButton("Immeuble");
+        immeubleRadioButton.setToggleGroup(typeToggleGroup);
+
+        Label etagesLabel = new Label("Nombre d'étages (RC = étage 0) :");
+
+        ComboBox<Integer> etagesComboBox = new ComboBox<>();
+        for (int i = 0; i <= 10; i++) {
+            etagesComboBox.getItems().add(i);
+        }
+        etagesComboBox.getSelectionModel().selectFirst(); // Sélectionne 0 par défaut
 
         Label budgetLabel = new Label("Entrez votre budget :");
         TextField budgetField = new TextField();
 
         Label heightLabel = new Label("Entrez la hauteur des étages (m) :");
         TextField heightField = new TextField();
-
-        Button submitButton = new Button("Soumettre");
+        
+        Button submitButton = new Button("Valider");
         submitButton.setOnAction(e -> {
+            // Récupérer le type de bâtiment sélectionné
+            String selectedType = typeToggleGroup.getSelectedToggle() == maisonRadioButton ? "Maison" : "Immeuble";
+            // Récupérer le nombre d'étages sélectionné
+            int selectedEtages = etagesComboBox.getValue();
+            
             handleSubmit(budgetField.getText(), heightField.getText(), secondStage);
-    });
+
+            Batiment monBatiment = new Batiment();
+            monBatiment.setType(selectedType);
+            monBatiment.setNbetages(selectedEtages);
+            
+            // Afficher les informations sélectionnées (vous pouvez ajuster cela selon votre besoin)
+            System.out.println("Type de bâtiment : " + selectedType);
+            System.out.println("Nombre d'étages : " + selectedEtages);
+
+            // Ici vous pouvez ajouter d'autres traitements ou actions selon les sélections
+        });
+
+        // Création de la disposition de l'interface
+        VBox secondLayout = new VBox(10);
+        secondLayout.getChildren().addAll(typeLabel, maisonRadioButton, immeubleRadioButton,
+                                   etagesLabel, etagesComboBox, budgetLabel, budgetField, heightLabel, heightField,submitButton);
+        secondLayout.setPadding(new Insets(20));
+        
         
 
-        VBox secondLayout = new VBox(20);
-        secondLayout.getChildren().addAll(budgetLabel, budgetField, heightLabel, heightField, submitButton);
-        secondLayout.setPadding(new Insets(20));
-
-        Scene secondScene = new Scene(secondLayout, 400, 250);
+        // Configuration de la scène et affichage de la fenêtre
+        Scene secondScene = new Scene(secondLayout, 500, 400);
         secondStage.setScene(secondScene);
         secondStage.show();
     }
-
-    private void handleSubmit(String budgetText, String heightText, Stage secondStage) {
+     
+    private void handleSubmit(String budgetText, String heightText,Stage secondStage) {
+        
+        
         try {
             double hauteur = Double.parseDouble(heightText);
             Leporjet.setHauteur(hauteur);
+            
+            double budget = Double.parseDouble(budgetText);
+            Leporjet.setBudget(budget);
+         
 
             System.out.println("Budget du client : " + budgetText);
             System.out.println("Hauteur des étages : " + heightText);
 
-            secondStage.close(); // Ferme la deuxième fenêtre après avoir soumis
-            showThirdWindow();// Ajoutez ici le code pour afficher la troisième fenêtre si nécessaire
+            secondStage.close();
+            showThirdWindow();
+            
         } catch (NumberFormatException ex) {
             // Gérer l'erreur de conversion de la hauteur en double
-            System.err.println("Erreur de format pour la hauteur : " + heightText);
+            System.err.println("Erreur de format hauteur ou budget " );
         }
     }
     
